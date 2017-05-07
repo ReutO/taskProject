@@ -1,0 +1,107 @@
+body {
+    background-image: url("./Images/tile.jpg");
+    position: relative;
+}
+p, textarea, span {
+    direction: rtl;
+    font-family: 'Rubik', sans-serif;
+}
+div#title {
+    text-align: center;
+}
+.listImage {
+    margin: -6px;
+    text-align: center;
+}
+.centerBlock {
+    margin: 0 auto;
+    width: 550px;
+}
+#listWrapper {
+    /*text-align:center; DOESN'T WORK BECAUSE TEXT-ALIGN DOESN'T WORK ON BLOCK ELEMENTS*/
+}
+#list {
+    background: url('./Images/formbg.jpg');
+    height: 250px;
+}
+#insertNote {
+    width: 100%;
+    padding-left: 73px;
+    box-sizing: border-box;
+    font-size: 23px;
+    line-height: 33.5px;
+    padding-top: 9px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 36px;
+    color: #4c4242;
+}
+#dateSave {
+    text-align: center;
+}
+#insertDate {
+    background-color: #F5F5DC;
+    width: 201px;
+    box-sizing: border-box;
+    height: 50px;
+    font-size: 36px;
+    direction: ltr;
+    float: right;
+}
+#save {
+    width: 201px;
+    height: 50px;
+    font-size: 36px;
+    background-color: #330c91;
+    color: #dde0de;
+    float: left;
+    font-family: 'Rubik', sans-serif;
+    s
+}
+#centerBlock2 {
+    clear: both;
+    text-align: center;
+}
+#Palert {
+    font-size: 32.5px;
+    background-color: rgba(0, 0, 0, 0.46);
+    color: #e5e6e2;
+}
+#savedNotesImages> .savedNotesImage {
+    background-image: url("./Images/notebg.png");
+    height: 250px;
+    width: 170px;
+    display: inline-block;
+    margin-right: 30px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.savedNotesImage> .noteText {
+    height: 150px;
+    font-size: 25px;
+    color: black;
+    word-wrap: break-word;
+    overflow: auto;
+}
+.savedNotesImage> .noteDate {
+    font-size: 25px;
+    color: black;
+    direction: ltr;
+    text-align: left;
+}
+.closeNote {
+    background-image: url("./Images/delete.png");
+    text-align: right;
+    height: 25px;
+    width: 25px;
+    float: right;
+    position: relative;
+    top: -251px;
+    right: -9px;
+}
+.closeNote:hover {
+    cursor: pointer;
+}
+#save:hover {
+    cursor: pointer;
+}

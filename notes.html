@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>My Tasks</title>
+    <link href="notes.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
+
+</head>
+
+<body onload="getNotes()">
+    <div id="title">
+        <img src="./Images/title.png" />
+    </div>
+    <form id="form" onsubmit="noRefresh(event)">
+        <div id="list" class="centerBlock">
+            <textarea id="insertNote" class="insertNote" placeholder="הכנס/י משימה חדשה"></textarea>
+        </div>
+        <div id="dateSave" class="centerBlock">
+            <input type="text" id="insertDate" placeholder="dd/mm/yyyy" />
+            <button id="save" onclick="return saveNote()">שמירה</button>
+        </div>
+    </form>
+    <div id="centerBlock2">
+        <span id="Palert"></span>
+    </div>
+    <div id="savedNotesImages"></div>
+
+    <script src="notes.js"></script>
+</body>
+
+</html>
