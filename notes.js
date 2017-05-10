@@ -32,20 +32,32 @@ function saveNote() { //creating a new task
     var insertDate = document.getElementById("insertDate");
     var dateValue = insertDate.value;
     var Palert = document.getElementById("Palert");
-    var re = /^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$/; //validating
+    var re = /^(?:(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)[0-9]{2})$/; //validating
     var testRe = re.test(dateValue);
-    if (noteValue == "" || testRe == false) {
+    if (noteValue == "" || !testRe) {
         Palert.innerHTML = "כדי לשמור חשוב לכתוב משימה ולהכניס תאריך לביצוע בפורמט נכון"
         return false;
     } else {
-        Palert.innerHTML = "";
-        var idSavedNotesImage = "";
-        var getID = makeNote(dateValue, noteValue, idSavedNotesImage); //creating the note in DOM
-        saveLocalStorage(dateValue, noteValue, getID); //saving the new tasks with their new ids to local storage
-
+        var dateSplit = dateValue.split("/");
+        var dd = dateSplit[0];
+        var mm = dateSplit[1];
+        var yy = dateSplit[2];
+        var mmMinus = --mm; // JavaScript months are zero indexed
+        var d = new Date();
+        var userPickDate = new Date();
+        userPickDate.setFullYear(yy, mmMinus, dd);
+        if (userPickDate.getTime() < d.getTime()) { //display the number of milliseconds since midnight, January 1, 1970.
+            Palert.innerHTML = "ניתן לשמור רק תאריך עתידי"
+            return false;
+        } else {
+            Palert.innerHTML = "";
+            var idSavedNotesImage = "";
+            var getID = makeNote(dateValue, noteValue, idSavedNotesImage); //creating the note in DOM
+            saveLocalStorage(dateValue, noteValue, getID); //saving the new tasks with their new ids to local storage
+            insertNote.value = "";
+            insertDate.value = "";
+        }
     }
-    insertNote.value = "";
-    insertDate.value = "";
 }
 
 function makeNote(dateValue, noteValue, idSavedNotesImage) {
